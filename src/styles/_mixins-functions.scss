@@ -1,0 +1,5 @@
+@mixin font-change($font-size) {
+  :root {
+    font-size: $font-size;
+  }
+}

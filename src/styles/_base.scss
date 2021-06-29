@@ -1,0 +1,88 @@
+:root {
+  font-size: 14px;
+}
+
+*::after,
+*::before,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input {
+  outline: none;
+  border: 0;
+}
+
+button {
+  border: 0;
+  background: initial;
+  cursor: pointer;
+}
+
+.google-btn {
+  $border-radius: 99999px;
+  $padding-x: 3rem;
+  $padding-y: 0.8rem;
+
+  display: flex;
+  align-items: center;
+
+  span {
+    width: 80%;
+    background-color: rgba($color: $google-button-blue, $alpha: 0.1);
+    color: rgba($color: $semi-white, $alpha: 0.6);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px $border-radius $border-radius 5px;
+
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .google-icon {
+    padding: 0.6rem 0px;
+    background-color: rgba($color: $semi-white, $alpha: 0.1);
+    border-radius: $border-radius 5px 5px $border-radius;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color 0.3s ease;
+
+    img {
+      margin-left: 5px;
+    }
+  }
+
+  &:hover {
+    & .google-icon {
+      background-color: rgba($color: $semi-white, $alpha: 0.15);
+    }
+
+    & span {
+      background-color: rgba($color: $google-button-blue, $alpha: 0.15);
+      color: rgba($color: $semi-white, $alpha: 0.7);
+    }
+  }
+}
+
+.input {
+  padding: 0.8rem 1.2rem;
+}
+
+.form-button {
+  border-radius: 99999px;
+  padding: 0.8rem 3rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}

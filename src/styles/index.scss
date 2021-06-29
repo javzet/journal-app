@@ -1,0 +1,103 @@
+@import "./variables";
+@import "./mixins-functions";
+@import "./base";
+
+.auth__main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #111111;
+}
+
+.auth__form-button {
+  color: rgba($color: #f7f7f7, $alpha: 0.5);
+  background-color: rgba($color: #f7f7f7, $alpha: 0.1);
+  transition: color 0.3s ease, background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba($color: #f7f7f7, $alpha: 0.15);
+    color: rgba($color: #f7f7f7, $alpha: 0.6);
+  }
+}
+
+.auth__box-container {
+  background-color: rgba($color: #f7f7f7, $alpha: 0.1);
+  border-radius: 1rem;
+  padding: 1.2rem 1.6rem;
+  box-shadow: 1px 1px 1.5rem 1px rgba($color: #000000, $alpha: 0.1);
+
+  width: 95%;
+}
+
+.auth__form-title {
+  font-size: 2rem;
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: rgba($color: #f7f7f7, $alpha: 0.4);
+}
+
+.auth__form-form {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  & > .input,
+  & > .button-container {
+    flex: 1 1 100%;
+  }
+
+  & > .input + .input {
+    margin-top: $auth-form-items-spacing;
+  }
+
+  & .button-container {
+    margin-top: calc(#{$auth-form-items-spacing} + 0.6rem);
+  }
+
+  .input {
+    background-color: transparent;
+    border-bottom: 1px solid rgba($color: #f7f7f7, $alpha: 0.5);
+    color: rgba($color: #f7f7f7, $alpha: 0.6);
+    font-size: 0.9rem;
+    transition: border-bottom 0.3s ease, color 0.3s ease;
+  }
+
+  .input:focus {
+    border-bottom: 1px solid rgba($color: #f7f7f7, $alpha: 0.7);
+    color: rgba($color: #f7f7f7, $alpha: 0.8);
+  }
+
+  .google-btn,
+  .form-button {
+    width: $auth-form-buttons-width;
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 320px) {
+  @include font-change(15px);
+
+  .auth__box-container {
+    width: 90%;
+    padding: 1.2rem 1.8rem;
+  }
+}
+
+@media (min-width: 550px) {
+  @include font-change(16px);
+
+  .auth__box-container {
+    width: 60%;
+    padding: 1.2rem 2rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .auth__box-container {
+    width: 50%;
+    padding: 1.2rem 2rem;
+  }
+}
