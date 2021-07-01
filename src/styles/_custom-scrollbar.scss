@@ -1,0 +1,12 @@
+.sidebar-entries::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+.sidebar-entries::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.sidebar-entries::-webkit-scrollbar-thumb {
+  background: rgba($color: $semi-white, $alpha: 0.2);
+  border-radius: 1rem;
+}

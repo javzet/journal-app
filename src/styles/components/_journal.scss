@@ -1,0 +1,244 @@
+.journal__main-content {
+  position: relative;
+  background-color: #131313;
+}
+
+.journal__sidebar {
+  position: relative;
+  background-color: $semi-black;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 0.2s linear, opacity 0.4s ease;
+  width: 100%;
+  height: calc(100vh - #{$nav-height});
+  // overflow-y: hidden;
+  z-index: 100;
+}
+
+.journal__sidebar.show {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+.appbar {
+  background-color: transparent;
+  color: #fff;
+  padding: 0rem 1rem;
+  height: $nav-height;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+  position: relative;
+
+  &::before {
+    content: "";
+    background-color: rgba($color: $semi-white, $alpha: 0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  span {
+    color: rgba($semi-white, 1);
+  }
+
+  .appbar-buttons {
+    display: flex;
+    margin-left: auto;
+    margin-right: 1rem;
+    button {
+      color: white;
+      margin-right: 0.6rem;
+      border-radius: 99999px;
+      padding: 0.6rem 1.4rem;
+    }
+  }
+}
+
+.menu-icon {
+  // margin-left: auto;
+
+  width: 2rem;
+  height: 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+
+  .line {
+    width: 100%;
+    height: 20%;
+    background-color: white;
+    border-radius: 9999px;
+    transition: transform 0.1s linear, opacity 0.1s linear;
+  }
+}
+
+.menu-icon.hidde {
+  .line {
+    position: absolute;
+  }
+
+  .line:nth-child(1) {
+    transform: rotate(-45deg);
+  }
+  .line:nth-child(2) {
+    opacity: 0;
+  }
+  .line:nth-child(3) {
+    transform: rotate(45deg);
+  }
+}
+
+.sidebar-header {
+  $color: rgba(
+    $color: $semi-white,
+    $alpha: 0.8,
+  );
+
+  width: 100%;
+  background-color: rgba($color: $semi-white, $alpha: 0.1);
+  padding: 1rem 1.2rem;
+  display: flex;
+
+  h2 {
+    $font-size: 1rem;
+    cursor: default;
+    color: $color;
+
+    display: flex;
+    svg {
+      width: $font-size;
+      margin-right: 0.4rem;
+      fill: $color;
+    }
+    span {
+      font-size: $font-size;
+    }
+  }
+
+  button {
+    $size: 1.05rem;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+
+    svg {
+      width: $size;
+      margin-right: 0.3rem;
+      fill: $color;
+      transition: fill ease 0.3s;
+    }
+    span {
+      font-size: 0.9rem;
+      color: $color;
+    }
+
+    &:hover {
+      opacity: 0.7;
+      svg {
+        fill: #911c1c;
+      }
+    }
+  }
+}
+
+.sidebar-add {
+  width: 100%;
+  height: $new-entry-height;
+  background-color: transparent;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+
+  button {
+    padding: 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    border-radius: 1.4rem;
+
+    span {
+      font-size: 1.4rem;
+      margin-top: 0.2rem;
+      color: rgba($color: $semi-white, $alpha: 0.2);
+      transition: color ease 0.3s;
+    }
+
+    svg {
+      fill: rgba($color: $semi-white, $alpha: 0.2);
+      transition: fill ease 0.3s;
+    }
+
+    &:hover svg {
+      fill: rgba($color: $semi-white, $alpha: 0.1);
+    }
+
+    &:hover span {
+      color: rgba($color: $semi-white, $alpha: 0.1);
+    }
+  }
+}
+
+.sidebar-entries {
+  background-color: transparent;
+  width: 100%;
+  display: grid;
+  padding: 1rem;
+  grid-gap: 0.8rem;
+  height: calc(100vh - #{$nav-height} - #{$nav-height} - #{$new-entry-height});
+  overflow-y: auto;
+}
+
+.journal__entry {
+  $border-radius: 0.8rem;
+
+  // padding: 1rem;
+  background-color: rgba($color: $semi-white, $alpha: 0.05);
+  width: 100%;
+  border-radius: $border-radius;
+  min-height: 7.4rem;
+  height: 7.4rem;
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+
+  .journal__entry-image {
+    width: 100%;
+    height: 100%;
+
+    .image {
+      background-size: cover;
+      background-position-x: center;
+      background-position-y: center;
+      height: 100%;
+      width: 100%;
+      border-radius: $border-radius 0px 0px $border-radius;
+    }
+  }
+
+  .journal__entry-body {
+    padding: 1rem;
+
+    span {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: rgba($color: $semi-white, $alpha: 0.6);
+    }
+
+    p {
+      margin-top: 0.3rem;
+      font-size: 0.9rem;
+      color: rgba($color: $semi-white, $alpha: 0.5);
+    }
+  }
+}

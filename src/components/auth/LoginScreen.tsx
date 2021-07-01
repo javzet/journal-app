@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { FormButton, GoogleFormButton } from "../FormButtons";
 
 export const LoginScreen = () => {
@@ -17,8 +18,16 @@ export const LoginScreen = () => {
           name="password"
           className="input"
         />
-        <FormButton className="form-button auth__form-button">Login</FormButton>
-        <GoogleFormButton>Sign in with google</GoogleFormButton>
+        <div className="buttons">
+          <FormButton className="form-button auth__form-button">
+            Login
+          </FormButton>
+          <GoogleFormButton>Login with google</GoogleFormButton>
+        </div>
+        <span className="auth__form-link">
+          Aleady Don't have an accout?{" "}
+          <Link to="/auth/register">Create one!</Link>
+        </span>
       </form>
     </>
   );
